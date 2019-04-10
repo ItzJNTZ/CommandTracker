@@ -1,6 +1,6 @@
 <?php
 /**
- * Created by PhpStorm.
+ * Created by PhpStorm
  * User: RTG
  * Date: 1/26/2019
  * Time: 10:22 PM
