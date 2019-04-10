@@ -90,16 +90,16 @@ class Handler extends PluginBase implements Listener {
         $relay = intval(time());
         $time = date('m-d-Y H:i:s', $relay);
 
-        if (!$player->isOp() || !$player->hasPermission('commandtrack.exempt')) {
-            if (in_array($input, $list)) {
+        
+        if (!(in_array($input, $list))) {
                 $draft = "Player: $username | Command: $message";
-                $discord = "[$time] Player: $username | Usage of restricted Command: $message";
+                $discord = "[$time] Player: $username | Command: $message";
                 if ($this->hasDiscordSupport()) { $this->pingDiscord($discord); }
                 $logs = new Config($this->getDataFolder() . "players/" . strtolower($username) . ".yml", Config::YAML);
                 $logs->set($time, $draft);
                 $logs->save();
-            }
         }
+        
     }
 
     public function onDisable(): void {
